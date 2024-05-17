@@ -3,19 +3,20 @@ import React from 'react'
 function Drinks(props) {
   return (
     <div className="w-full max-w-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <a href="#">
+      <div>
         <img
           className=" rounded-t-lg"
           src={props.img }
           alt="product image"
         />
-      </a>
+
+      </div>
       <div className="px-5 pb-5">
-        <a href="#">
+        <div>
           <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white pt-10">
-            Javachip 
+            {props.name}
           </h5>
-        </a>
+        </div>
         <div className="flex items-center mt-2.5 mb-5">
           <div className="flex items-center space-x-1 rtl:space-x-reverse">
             <svg
@@ -85,5 +86,3 @@ function Drinks(props) {
 }
 
 export default Drinks;
-
-

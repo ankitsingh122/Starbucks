@@ -2,6 +2,7 @@ import React from "react";
 import Home from "./component/Home";
 import Bestseller from "./component/Bestseller";
 import Offer from "./component/Offer";
+import Footer from "./component/Footer";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Home />
         <Bestseller/>
         <Offer/>
+        <Footer/>
       </div>
     </>
   );
