@@ -1,5 +1,5 @@
 import React from 'react'
-
+import PropTypes from "prop-types";
 
 function Coffee(props) {
   return (
@@ -11,5 +11,9 @@ function Coffee(props) {
     </>
   );
 }
+Coffee.propTypes = {
+  img: PropTypes.string.isRequired,
+};
+
 
 export default Coffee
