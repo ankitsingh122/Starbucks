@@ -8,11 +8,11 @@ function Navbar() {
  
   return (
     <>
-      <div className="bg-white flex justify-between items-center mx-96  py-4 px-20 rounded-full">
-        <div className="flex">
+      <div className="bg-white flex justify-between items-center w-max   py-4 px-8 rounded-full">
+        <div className="flex ">
           <img className="w-16 " src={starbucks} alt="" />
         </div>
-        <div className="flex space-x-10  font-semibold text-lg cursor-pointer mr-44">
+        <div className="flex space-x-10  font-semibold text-lg cursor-pointer mx-20">
           <h1 className=" text-slate-500 hover:text-black">Home</h1>
           <h1 className=" text-slate-500 hover:text-black">Rewards</h1>
           <h1 className=" text-slate-500 hover:text-black">Menu</h1>

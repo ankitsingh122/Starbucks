@@ -67,7 +67,7 @@ function Footer() {
                 </h2>
                 <h2 className=" hover:text-gray-400 cursor-pointer">
                   {" "}
-                  Starbucks India Mobile App <br /> Terms of Use{" "}
+                  Starbucks India Mobile App Terms of Use{" "}
                 </h2>
                 <h2 className=" hover:text-gray-400 cursor-pointer">
                   {" "}
