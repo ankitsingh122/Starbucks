@@ -10,7 +10,7 @@ function Footer() {
     <>
       <div className=" bg-green-950 w-screen h-full">
         <div>
-          <div className="flex p-44 space-x-20 ">
+          <div className="flex p-32 space-x-20 ">
             <div>
               <img className="w-20  " src={starbucks} alt="" />
             </div>
@@ -114,7 +114,7 @@ function Footer() {
               </div>
             </div>
           </div>
-          <div className="-mt-32 mx-32 ">
+          <div className=" mx-32 ">
             <hr />
           </div>
           <div className="text-white py-8 mx-32 flex justify-between ">

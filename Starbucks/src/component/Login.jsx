@@ -1,30 +1,41 @@
 import React, { useState } from "react";
-import starbucks from '../assets/starbucks.png'
-
+import { useDispatch } from "react-redux";
+import starbucks from "../assets/starbucks.png";
+import { loginSuccess } from "../component/Store/Slice/Auth";
 
 import PropTypes from "prop-types";
+import { login } from "./Store/Slice/UserSlice";
 
-function Login({  closeModal }) {
+function Login({ closeModal, onLoginSuccess }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
-
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const formData = {
+      name: name,
+      email: email,
+      password: password,
+      loggedIn: true,
+      tel: phone,
+    };
+
+    dispatch(loginSuccess());
+    dispatch(login((formData)))
+    onLoginSuccess();
     closeModal();
   };
 
   return (
-    <div className="bg-white shadow-md rounded px-32 pt-6 py-8 ">
-      
+    <div className="bg-white shadow-md rounded px-32 pt-6 py-8">
       <div className="flex justify-center py-4">
-
-        <img className="w-20 " src={starbucks} alt="" />
-        
+        <img className="w-20" src={starbucks} alt="" />
       </div>
-            <hr />
+      <hr />
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className="mt-2">
           <input
@@ -47,6 +58,15 @@ function Login({  closeModal }) {
         <div className="mt-2">
           <input
             className="rounded-md text-center"
+            type="tel"
+            placeholder="Contact No."
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
+        </div>
+        <div className="mt-2">
+          <input
+            className="rounded-md text-center"
             type="password"
             placeholder="Password"
             value={password}
@@ -62,8 +82,8 @@ function Login({  closeModal }) {
 }
 
 Login.propTypes = {
-  player: PropTypes.number.isRequired,
   closeModal: PropTypes.func.isRequired,
+  onLoginSuccess: PropTypes.func.isRequired,
 };
 
 export default Login;
