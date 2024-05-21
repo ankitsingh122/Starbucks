@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 function Cards(props) {
   return (
     <div
-      className="max-w-5xl bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+      className="max-w-5xl bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 josefin-sans-uniqueProfile"
       data-aos="fade-in"
     >
       <img className="rounded-t-lg" src={props.img} alt="" />

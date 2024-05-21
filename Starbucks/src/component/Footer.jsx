@@ -8,9 +8,9 @@ import b from '../assets/b.png'
 function Footer() {
   return (
     <>
-      <div className=" bg-green-950 w-screen h-full">
+      <div className=" bg-green-950 w-screen h-full josefin-sans-uniqueProfile">
         <div>
-          <div className="flex p-32 space-x-20 ">
+          <div className="flex p-32 space-x-20 " data-aos="fade-in">
             <div>
               <img className="w-20  " src={starbucks} alt="" />
             </div>

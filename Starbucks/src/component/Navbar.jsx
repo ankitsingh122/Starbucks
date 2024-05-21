@@ -26,19 +26,20 @@ function Navbar() {
 
   return (
     <>
-      <div className="bg-white flex justify-between items-center w-max py-4 px-8 rounded-full">
-        <div className="flex">
+      <div className="bg-white flex justify-between items-center w-max py-4 px-8 rounded-full  ">
+        <div className="flex ">
           <img className="w-16" src={starbucks} alt="" />
         </div>
-        <div className="flex space-x-10 font-semibold text-lg cursor-pointer mx-20">
+        <div className="flex space-x-10  text-lg cursor-pointer mx-20 josefin-sans-uniqueProfile ">
           <Link to="/">
             <h1 className="text-slate-500 hover:text-black">Home</h1>
           </Link>
           <h1 className="text-slate-500 hover:text-black">Rewards</h1>
-          <h1 className="text-slate-500 hover:text-black">Menu</h1>
           <h1 className="text-slate-500 hover:text-black">Order</h1>
           <h1 className="text-slate-500 hover:text-black">E-Gift</h1>
-          <h1 className="text-slate-500 hover:text-black">Pay</h1>
+          <Link to="/Pay">
+            <h1 className="text-slate-500 hover:text-black">Pay</h1>
+          </Link>
         </div>
         <div className="flex px-5">
           <input

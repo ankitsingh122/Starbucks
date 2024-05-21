@@ -43,15 +43,16 @@ function Offer() {
   return (
     <div className="w-screen h-full bg-stone-200">
       <div
-        className="flex justify-center text-4xl font-semibold py-10"
+        className="flex justify-center text-4xl font-semibold py-10 josefin-sans-uniqueProfile"
         data-aos="fade-in"
       >
         Latest Offerings
       </div>
-      <div className="flex justify-center py-10 space-x-8">
+      <div className="flex justify-center py-10 space-x-8 josefin-sans-uniqueProfile">
         <button onClick={handlePrev}>
           <CircumIcon name="circle_chev_left" />
         </button>
+
         {displayedDrinks.map((drink, index) => (
           <Drinks
             key={index}

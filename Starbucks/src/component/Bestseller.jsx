@@ -11,7 +11,7 @@ import E from "../assets/E.webp";
 function Bestseller() {
   return (
     <>
-      <div className="w-screen h-full bg-stone-200">
+      <div className="w-screen h-full bg-stone-200 josefin-sans-uniqueProfile">
         <div className="flex justify-center text-4xl font-semibold py-10">
           <h1 data-aos="fade-in">Handcrafted Curations</h1>
         </div>
