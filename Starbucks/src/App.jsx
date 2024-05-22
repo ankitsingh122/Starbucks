@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Pay from "./pages/Pay";
+import Order from "./pages/Order";
+
 
 
 function App() {
@@ -22,6 +24,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/Profile" element={<Profile />} />
             <Route path="/Pay" element={<Pay />} />
+            <Route path="/Order" element={<Order />} />
           </Routes>
         </div>
       </Router>

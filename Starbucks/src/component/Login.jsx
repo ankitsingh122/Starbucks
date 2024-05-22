@@ -21,8 +21,7 @@ function Login({ closeModal, onLoginSuccess }) {
     if (!name || !email || !phone || !password) {
       toast.error("Please fill out all fields.");
       return;
-    } 
-    
+    }
 
     const formData = {
       name: name,

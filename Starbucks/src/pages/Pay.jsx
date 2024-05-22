@@ -1,15 +1,22 @@
 import React from 'react'
 import Navbar from '../component/Navbar';
+import { useSelector } from 'react-redux';
 
 
 function Pay() {
+   const cartItems = useSelector((state) => state.cart.cartItems);
+    const totalPrice = cartItems.reduce(
+      (total, item) =>
+        total + parseInt(item.price.replace("₹", "")) * item.quantity,
+      0
+    );
   return (
     <>
-      <div className="w-screen h-full bg-stone-200 py-10 josefin-sans-uniqueProfile">
+      <div className="w-screen h-full bg-stone-200 py-10 ">
         <div className="flex justify-center">
           <Navbar />
         </div>
-        <div className="flex justify-center py-20">
+        <div className="flex justify-center py-20 josefin-sans-uniqueProfile">
           <div className="row">
             <div className="col-75">
               <div className="container">
@@ -79,7 +86,9 @@ function Pay() {
                     </div>
 
                     <div className="col-50">
-                      <h3 className="mt-4  text-lg font-semibold">Payment</h3>
+                      <h3 className="mt-4  text-lg font-semibold">
+                        Payment :-  ₹ {totalPrice}
+                      </h3>
                       <label className="mt-9">Accepted Cards</label>
                       <div className="icon-container space-x-5 ">
                         <i

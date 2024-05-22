@@ -35,7 +35,9 @@ function Navbar() {
             <h1 className="text-slate-500 hover:text-black">Home</h1>
           </Link>
           <h1 className="text-slate-500 hover:text-black">Rewards</h1>
-          <h1 className="text-slate-500 hover:text-black">Order</h1>
+          <Link to= "/Order">
+            <h1 className="text-slate-500 hover:text-black">Order</h1>
+          </Link>
           <h1 className="text-slate-500 hover:text-black">E-Gift</h1>
           <Link to="/Pay">
             <h1 className="text-slate-500 hover:text-black">Pay</h1>
