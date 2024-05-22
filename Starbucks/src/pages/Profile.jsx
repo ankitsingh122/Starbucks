@@ -27,24 +27,21 @@ function Profile() {
           <img src={starbucks} alt="Starbucks" data-aos="zoom-in" />
           {userData.user ? (
             <div className="absolute top-0 w-full h-full flex justify-center items-center ">
-              <div
-                className="bg-white bg-opacity-80  rounded-lg shadow-lg w-96 h-96 text-center"
-            
-              >
+              <div className="bg-white bg-opacity-80  rounded-lg shadow-lg w-96 h-96 text-center josefin-sans-uniqueProfile">
                 <h1 className="text-2xl font-bold mt-10 ">Welcome </h1>
                 <hr />
                 <div className=" mt-20 text-lg ">
                   <p className="mb-2 ">
                     <strong>Name:</strong>
-                    <span className=" font-mono "> {userData.user?.name}</span>
+                    <span> {userData.user?.name}</span>
                   </p>
                   <p className="mb-2">
                     <strong>Email:</strong>
-                    <span className=" font-mono"> {userData.user?.email}</span>
+                    <span> {userData.user?.email}</span>
                   </p>
                   <p className="mb-2">
                     <strong>Phone:</strong>
-                    <span className=" font-mono"> {userData.user?.tel}</span>
+                    <span> {userData.user?.tel}</span>
                   </p>
                   <div className="flex justify-center py-8">
                     <div onClick={handleLogout} className="cursor-pointer">

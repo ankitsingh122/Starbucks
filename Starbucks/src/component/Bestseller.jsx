@@ -12,7 +12,7 @@ function Bestseller() {
   return (
     <>
       <div className="w-screen h-full bg-stone-200 josefin-sans-uniqueProfile">
-        <div className="flex justify-center text-4xl font-semibold py-10">
+        <div className="flex justify-center text-4xl font-semibold py-10  josefin-sans-uniqueProfile">
           <h1 data-aos="fade-in">Handcrafted Curations</h1>
         </div>
 
@@ -59,4 +59,4 @@ function Bestseller() {
   );
 }
 
-export default Bestseller
+export default Bestseller;
