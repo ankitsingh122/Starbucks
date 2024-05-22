@@ -14,8 +14,8 @@ function Footer() {
             <div>
               <img className="w-20  " src={starbucks} alt="" />
             </div>
-            <div className="flex space-x-44 ">
-              <div className="text-white space-y-4 ">
+            <div className="flex space-x-44  ">
+              <div className="text-white space-y-4  ">
                 <h1 className="font-semibold text-xl cursor-pointer">
                   About Us
                 </h1>

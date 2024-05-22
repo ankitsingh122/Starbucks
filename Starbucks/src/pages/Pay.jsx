@@ -10,6 +10,10 @@ function Pay() {
         total + parseInt(item.price.replace("₹", "")) * item.quantity,
       0
     );
+
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+    }
   return (
     <>
       <div className="w-screen h-full bg-stone-200 py-10 ">
@@ -160,6 +164,8 @@ function Pay() {
                     type="submit"
                     value="Continue to checkout"
                     className="btn"
+                    onClick={handleSubmit}
+                  
                   />
                 </form>
               </div>

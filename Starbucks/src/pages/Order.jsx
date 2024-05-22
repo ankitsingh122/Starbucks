@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Navbar from "../component/Navbar";
-import { removeItemFromCart } from "../component/Store/Slice/Cart";
+import { removeItemFromCart  } from "../component/Store/Slice/Cart";
 import CircumIcon from "@klarr-agency/circum-icons-react";
 import Footer from '../component/Footer'
 

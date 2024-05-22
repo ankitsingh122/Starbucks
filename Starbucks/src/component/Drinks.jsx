@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes  from 'prop-types';
+import veg from "../assets/veg.png"
 
 function Drinks(props) {
   
@@ -9,10 +10,12 @@ function Drinks(props) {
         <img className=" rounded-t-lg" src={props.img} alt="product image" />
       </div>
       <div className="px-5 pb-5">
+        <img className='w-4 pt-5 ' src={veg} alt="" />
         <div>
-          <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white pt-10">
+          <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white pt-2 ">
             {props.name}
           </h5>
+          <p className="text-xs py-1">{props.discription}</p>
         </div>
         <div className="flex items-center mt-2.5 mb-5">
           <div className="flex items-center space-x-1 rtl:space-x-reverse">
@@ -70,7 +73,10 @@ function Drinks(props) {
           <span className="text-lg font-bold text-gray-900 dark:text-white">
             {props.price}
           </span>
-          <div onClick={props.onAdd} className="text-white bg-green-950 hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 cursor-pointer">
+          <div
+            onClick={props.onAdd}
+            className="text-white bg-green-950 hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 cursor-pointer"
+          >
             Add item
           </div>
         </div>
@@ -83,6 +89,7 @@ Drinks.propTypes = {
   price: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  discription: PropTypes.string.isRequired,
   onAdd: PropTypes.func.isRequired,
 };
 

@@ -22,6 +22,7 @@ function Login({ closeModal, onLoginSuccess }) {
       toast.error("Please fill out all fields.");
       return;
     }
+    
 
     const formData = {
       name: name,
@@ -31,12 +32,16 @@ function Login({ closeModal, onLoginSuccess }) {
       tel: phone,
     };
 
+
+
     dispatch(loginSuccess());
     dispatch(login(formData));
     onLoginSuccess();
     closeModal();
   };
 
+  
+    
   const handleClickOutside = (e) => {
     if (modalRef.current && !modalRef.current.contains(e.target)) {
       closeModal();

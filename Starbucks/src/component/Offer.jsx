@@ -11,11 +11,42 @@ import { addItemToCart } from "./Store/Slice/Cart";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const drinks = [
-  { img: C1, price: "₹550", name: "Belgium Chocolate Frappuccino" },
-  { img: o, price: "₹450", name: "Iced Belgium Chocolate Latte" },
-  { img: q, price: "₹500", name: "Alphonso Mango Java Chip Frappuccino" },
-  { img: k, price: "₹445", name: "Belgium Chocolate Latte" },
-  { img: n, price: "₹375", name: "Cold Brew with Ginger Ale" },
+  {
+    img: C1,
+    price: "₹550",
+    name: "Belgium Chocolate Frappuccino",
+    discription:
+      "Espresso with decadent Belgian chocolate sauce, mocha sauce and steamed milk served over ice. Topped with whipped chocolate topping ...",
+  },
+
+  {
+    img: q,
+    price: "₹500",
+    name: "Alphonso Mango Java Chip Frappuccino",
+    discription:
+      "Alphonso mango and milk are blended with ice and Java Chips to a fruity, chocolaty perfection. Topped with a swirl of whipped ...",
+  },
+  {
+    img: k,
+    price: "₹445",
+    name: "Belgium Chocolate Latte",
+    discription:
+      "Blend of decadent Belgian chocolate sauce and coffee with a whipped chocolate topping. The beverage is finished ...",
+  },
+  {
+    img: o,
+    price: "₹450",
+    name: "Iced Belgium Chocolate Latte",
+    discription:
+      "Espresso with decadent Belgian chocolate sauce, mocha sauce and steamed milk served over ice. Topped with whipped chocolate topping ...",
+  },
+  {
+    img: n,
+    price: "₹375",
+    name: "Cold Brew with Ginger Ale",
+    discription:
+      "A delicious double layered cold brew beverage with ginger ale. A pure delight for a warm sunny day.",
+  },
 ];
 
 function Offer() {
@@ -35,8 +66,8 @@ function Offer() {
 
   const handleAddItem = (drink) => {
     dispatch(addItemToCart(drink));
-     toast.success("item added");
-     return;
+    toast.success("item added");
+    return;
   };
 
   const displayedDrinks = drinks.slice(
@@ -70,6 +101,7 @@ function Offer() {
               img={drink.img}
               price={drink.price}
               name={drink.name}
+              discription={drink.discription}
               onAdd={() => handleAddItem(drink)}
             />
           ))}
@@ -78,7 +110,7 @@ function Offer() {
           </button>
         </div>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </>
   );
 }
