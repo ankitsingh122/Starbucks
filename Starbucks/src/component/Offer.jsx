@@ -65,8 +65,10 @@ function Offer() {
   };
 
   const handleAddItem = (drink) => {
+    
     dispatch(addItemToCart(drink));
     toast.success("item added");
+    
     return;
   };
 
@@ -109,8 +111,8 @@ function Offer() {
             <CircumIcon name="circle_chev_right" />
           </button>
         </div>
+        <ToastContainer />
       </div>
-      <ToastContainer />
     </>
   );
 }

@@ -1,15 +1,17 @@
 import React, { useState } from "react";
-import Navbar from "../component/Navbar";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom"; // Import useHistory
 import { removeAllItems } from "../Store/Slice/Cart";
+import Navbar from "../component/Navbar";
+import Footer from "../component/Footer";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Footer from "../component/Footer";
-
 
 function Pay() {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
+  const navigate = useNavigate(); // Initialize useHistory
+
   const totalPrice = cartItems.reduce(
     (total, item) =>
       total + parseInt(item.price.replace("₹", "")) * item.quantity,
@@ -54,7 +56,6 @@ function Pay() {
       cvv,
     } = formData;
 
-   
     if (
       !firstname ||
       !email ||
@@ -68,14 +69,16 @@ function Pay() {
       !expyear ||
       !cvv
     ) {
-      toast.error("Fill all the inputs")
+      toast.error("Fill all the inputs");
       return;
     }
 
     dispatch(removeAllItems());
-    toast.success("checkout Successfully")
+    toast.success("Checkout Successfully");
 
-
+    setTimeout(() => {
+      navigate("/"); 
+    }, 5000);
   };
 
   return (
@@ -257,8 +260,8 @@ function Pay() {
           </div>
         </div>
       </div>
-      <ToastContainer/>
-      <Footer/>
+      <ToastContainer />
+      <Footer />
     </>
   );
 }
