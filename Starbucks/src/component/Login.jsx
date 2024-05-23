@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import starbucks from "../assets/starbucks.png";
-import { loginSuccess } from "../component/Store/Slice/Auth";
+import { loginSuccess } from "../Store/Slice/Auth";
 import PropTypes from "prop-types";
-import { login } from "./Store/Slice/UserSlice";
+import { login } from "../Store/Slice/UserSlice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

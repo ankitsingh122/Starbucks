@@ -4,8 +4,8 @@ import Navbar from "../component/Navbar";
 import starbucks from "../assets/starbucks.png";
 import Footer from "../component/Footer";
 import CircumIcon from "@klarr-agency/circum-icons-react";
-import { logoutSuccess } from "../component/Store/Slice/Auth";
-import { logout } from "../component/Store/Slice/UserSlice";
+import { logoutSuccess } from "../Store/Slice/Auth";
+import { logout } from "../Store/Slice/UserSlice";
 
 function Profile() {
   const userData = useSelector((state) => state.users);

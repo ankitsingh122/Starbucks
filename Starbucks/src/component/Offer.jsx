@@ -7,7 +7,7 @@ import k from "../assets/k.webp";
 import o from "../assets/o.webp";
 import q from "../assets/q.webp";
 import CircumIcon from "@klarr-agency/circum-icons-react";
-import { addItemToCart } from "./Store/Slice/Cart";
+import { addItemToCart } from "../Store/Slice/Cart";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const drinks = [

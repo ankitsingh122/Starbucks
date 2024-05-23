@@ -4,7 +4,7 @@ import starbucks from "../assets/starbucks.png";
 import CircumIcon from "@klarr-agency/circum-icons-react";
 import Login from "./Login";
 import { Link } from "react-router-dom";
-import { loginSuccess } from "../component/Store/Slice/Auth";
+import { loginSuccess } from "../Store/Slice/Auth";
 
 function Navbar() {
   const [isLogin, setLogin] = useState(false);

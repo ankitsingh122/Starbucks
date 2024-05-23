@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Navbar from "../component/Navbar";
-import { removeItemFromCart  } from "../component/Store/Slice/Cart";
+import { removeItemFromCart  } from "../Store/Slice/Cart";
 import CircumIcon from "@klarr-agency/circum-icons-react";
 import Footer from '../component/Footer';
 import { Link } from "react-router-dom";
@@ -27,13 +27,15 @@ function Order() {
           <Navbar />
         </div>
         <div className="flex justify-center py-20">
-          <h1 className="text-4xl">Your Orders</h1>
+          <h1 className="text-4xl" data-aos="fade-in">
+            Your Orders
+          </h1>
         </div>
 
         <div className="flex justify-center">
           <div className="max-w-2xl w-full">
             {cartItems.length === 0 ? (
-              <div>
+              <div data-aos="fade-in">
                 <CircumIcon name="shopping_cart" size="600px" />
               </div>
             ) : (
@@ -63,7 +65,7 @@ function Order() {
               <div className="text-right mt-4">
                 <h2 className="text-2xl font-semibold">Total: ₹{totalPrice}</h2>
                 <div>
-                  <Link to= "/Pay">
+                  <Link to="/Pay">
                     <button className=" ">Click here to Pay</button>
                   </Link>
                 </div>

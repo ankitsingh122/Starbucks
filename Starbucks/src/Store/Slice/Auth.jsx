@@ -1,4 +1,3 @@
-
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -20,4 +19,4 @@ const authSlice = createSlice({
 
 export const { loginSuccess, logoutSuccess } = authSlice.actions;
 
-export {authSlice};
+export { authSlice };

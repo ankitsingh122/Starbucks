@@ -13,7 +13,7 @@ import Order from "./pages/Order";
 function App() {
     useEffect(() => {
       AOS.init({
-        duration: 1000,
+        duration: 2000,
       });
     }, []);
   return (

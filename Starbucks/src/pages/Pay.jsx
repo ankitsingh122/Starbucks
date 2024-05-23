@@ -1,22 +1,86 @@
-import React from 'react'
-import Navbar from '../component/Navbar';
-import { useSelector } from 'react-redux';
+import React, { useState } from "react";
+import Navbar from "../component/Navbar";
+import { useSelector, useDispatch } from "react-redux";
+import { removeAllItems } from "../Store/Slice/Cart";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Footer from "../component/Footer";
 
 
 function Pay() {
-   const cartItems = useSelector((state) => state.cart.cartItems);
-    const totalPrice = cartItems.reduce(
-      (total, item) =>
-        total + parseInt(item.price.replace("₹", "")) * item.quantity,
-      0
-    );
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const dispatch = useDispatch();
+  const totalPrice = cartItems.reduce(
+    (total, item) =>
+      total + parseInt(item.price.replace("₹", "")) * item.quantity,
+    0
+  );
 
-    const handleSubmit = (e)=>{
-        e.preventDefault();
+  const [formData, setFormData] = useState({
+    firstname: "",
+    email: "",
+    address: "",
+    city: "",
+    state: "",
+    zip: "",
+    cardname: "",
+    cardnumber: "",
+    expmonth: "",
+    expyear: "",
+    cvv: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const {
+      firstname,
+      email,
+      address,
+      city,
+      state,
+      zip,
+      cardname,
+      cardnumber,
+      expmonth,
+      expyear,
+      cvv,
+    } = formData;
+
+   
+    if (
+      !firstname ||
+      !email ||
+      !address ||
+      !city ||
+      !state ||
+      !zip ||
+      !cardname ||
+      !cardnumber ||
+      !expmonth ||
+      !expyear ||
+      !cvv
+    ) {
+      toast.error("Fill all the inputs")
+      return;
     }
+
+    dispatch(removeAllItems());
+    toast.success("checkout Successfully")
+
+
+  };
+
   return (
     <>
-      <div className="w-screen h-full bg-stone-200 py-10 ">
+      <div className="w-screen h-full bg-stone-200 py-10">
         <div className="flex justify-center">
           <Navbar />
         </div>
@@ -24,7 +88,7 @@ function Pay() {
           <div className="row">
             <div className="col-75">
               <div className="container">
-                <form>
+                <form onSubmit={handleSubmit}>
                   <div className="row">
                     <div className="col-50">
                       <h3 className="mt-4 text-lg font-semibold">
@@ -38,6 +102,8 @@ function Pay() {
                         id="fname"
                         name="firstname"
                         placeholder="Name"
+                        value={formData.firstname}
+                        onChange={handleChange}
                       />
                       <label>
                         <i className="fa fa-envelope"></i> E-mail
@@ -47,6 +113,8 @@ function Pay() {
                         id="email"
                         name="email"
                         placeholder="E-mail"
+                        value={formData.email}
+                        onChange={handleChange}
                       />
                       <label>
                         <i className="fa fa-address-card-o"></i> Address
@@ -56,6 +124,8 @@ function Pay() {
                         id="adr"
                         name="address"
                         placeholder="542 W. 15th Street"
+                        value={formData.address}
+                        onChange={handleChange}
                       />
                       <label>
                         <i className="fa fa-institution"></i> City
@@ -65,6 +135,8 @@ function Pay() {
                         id="city"
                         name="city"
                         placeholder="New York"
+                        value={formData.city}
+                        onChange={handleChange}
                       />
 
                       <div className="row">
@@ -75,6 +147,8 @@ function Pay() {
                             id="state"
                             name="state"
                             placeholder="NY"
+                            value={formData.state}
+                            onChange={handleChange}
                           />
                         </div>
                         <div className="col-50">
@@ -84,17 +158,19 @@ function Pay() {
                             id="zip"
                             name="zip"
                             placeholder="10001"
+                            value={formData.zip}
+                            onChange={handleChange}
                           />
                         </div>
                       </div>
                     </div>
 
                     <div className="col-50">
-                      <h3 className="mt-4  text-lg font-semibold">
-                        Payment :-  ₹ {totalPrice}
+                      <h3 className="mt-4 text-lg font-semibold">
+                        Payment :- ₹ {totalPrice}
                       </h3>
                       <label className="mt-9">Accepted Cards</label>
-                      <div className="icon-container space-x-5 ">
+                      <div className="icon-container space-x-5">
                         <i
                           className="fa fa-cc-visa"
                           style={{ color: "navy" }}
@@ -118,6 +194,8 @@ function Pay() {
                         id="cname"
                         name="cardname"
                         placeholder="Card Name"
+                        value={formData.cardname}
+                        onChange={handleChange}
                       />
                       <label>Credit card number</label>
                       <input
@@ -125,6 +203,8 @@ function Pay() {
                         id="ccnum"
                         name="cardnumber"
                         placeholder="1111-2222-3333-4444"
+                        value={formData.cardnumber}
+                        onChange={handleChange}
                       />
                       <label>Exp Month</label>
                       <input
@@ -132,6 +212,8 @@ function Pay() {
                         id="expmonth"
                         name="expmonth"
                         placeholder="September"
+                        value={formData.expmonth}
+                        onChange={handleChange}
                       />
 
                       <div className="row">
@@ -142,6 +224,8 @@ function Pay() {
                             id="expyear"
                             name="expyear"
                             placeholder="2018"
+                            value={formData.expyear}
+                            onChange={handleChange}
                           />
                         </div>
                         <div className="col-50">
@@ -151,6 +235,8 @@ function Pay() {
                             id="cvv"
                             name="cvv"
                             placeholder="352"
+                            value={formData.cvv}
+                            onChange={handleChange}
                           />
                         </div>
                       </div>
@@ -164,8 +250,6 @@ function Pay() {
                     type="submit"
                     value="Continue to checkout"
                     className="btn"
-                    onClick={handleSubmit}
-                  
                   />
                 </form>
               </div>
@@ -173,8 +257,10 @@ function Pay() {
           </div>
         </div>
       </div>
+      <ToastContainer/>
+      <Footer/>
     </>
   );
 }
 
-export default Pay
+export default Pay;
