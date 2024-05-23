@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom"; // Import useHistory
+import { useNavigate } from "react-router-dom"; 
 import { removeAllItems } from "../Store/Slice/Cart";
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
