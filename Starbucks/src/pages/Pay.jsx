@@ -9,8 +9,10 @@ import "react-toastify/dist/ReactToastify.css";
 
 function Pay() {
   const cartItems = useSelector((state) => state.cart.cartItems);
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
   const dispatch = useDispatch();
-  const navigate = useNavigate(); // Initialize useHistory
+  const navigate = useNavigate();
 
   const totalPrice = cartItems.reduce(
     (total, item) =>
@@ -42,6 +44,7 @@ function Pay() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     const {
       firstname,
       email,
@@ -56,7 +59,9 @@ function Pay() {
       cvv,
     } = formData;
 
-    if (
+    
+
+    if  (
       !firstname ||
       !email ||
       !address ||
@@ -71,16 +76,28 @@ function Pay() {
     ) {
       toast.error("Fill all the inputs");
       return;
+
+      
     }
+    
 
     dispatch(removeAllItems());
     toast.success("Checkout Successfully");
 
     setTimeout(() => {
-      navigate("/"); 
+      navigate("/");
     }, 5000);
+    
   };
 
+  const handleLogin = () => {
+
+    toast.error("Please Login");
+
+    return;
+  };
+
+  
   return (
     <>
       <div className="w-screen h-full bg-stone-200 py-10">
@@ -249,18 +266,21 @@ function Pay() {
                     <input type="checkbox" defaultChecked name="sameadr" />{" "}
                     Shipping address same as billing
                   </label>
-                  <input
-                    type="submit"
-                    value="Continue to checkout"
-                    className="btn"
-                  />
+                  {isLoggedIn ? (
+                    <button className="btn ">Continue to Checkout</button>
+                  ) : (
+                    <button onClick={handleLogin} className="btn ">
+                      Continue to Checkout
+                    </button>
+                  )}
                 </form>
               </div>
             </div>
           </div>
         </div>
+        <ToastContainer />
       </div>
-      <ToastContainer />
+
       <Footer />
     </>
   );
