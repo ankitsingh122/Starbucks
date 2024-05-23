@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import Navbar from "../component/Navbar";
 import { removeItemFromCart  } from "../component/Store/Slice/Cart";
 import CircumIcon from "@klarr-agency/circum-icons-react";
-import Footer from '../component/Footer'
+import Footer from '../component/Footer';
+import { Link } from "react-router-dom";
 
 
 function Order() {
@@ -27,13 +28,13 @@ function Order() {
         </div>
         <div className="flex justify-center py-20">
           <h1 className="text-4xl">Your Orders</h1>
-           </div>
-           
+        </div>
+
         <div className="flex justify-center">
           <div className="max-w-2xl w-full">
             {cartItems.length === 0 ? (
               <div>
-                <CircumIcon name="shopping_cart" size="600px"/>
+                <CircumIcon name="shopping_cart" size="600px" />
               </div>
             ) : (
               cartItems.map((item, index) => (
@@ -61,12 +62,17 @@ function Order() {
             {cartItems.length > 0 && (
               <div className="text-right mt-4">
                 <h2 className="text-2xl font-semibold">Total: ₹{totalPrice}</h2>
+                <div>
+                  <Link to= "/Pay">
+                    <button className=" ">Click here to Pay</button>
+                  </Link>
+                </div>
               </div>
             )}
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }
